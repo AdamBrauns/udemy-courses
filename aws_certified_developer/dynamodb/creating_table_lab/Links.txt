@@ -1,0 +1,12 @@
+PHP on AWS:
+https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_installation.html
+
+Composer:
+https://getcomposer.org/download/
+https://getcomposer.org/doc/articles/troubleshooting.md#proc-open-fork-failed-errors
+
+Link to the GitHub:
+https://github.com/acloudguru/dynamodb
+
+Query in the CLI:
+aws dynamodb get-item --table-name ProductCatalog --region us-east-1 --key '{"Id":{"N":"205"}}'

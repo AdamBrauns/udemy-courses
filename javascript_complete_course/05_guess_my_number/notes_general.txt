@@ -1,0 +1,6 @@
+To move a line down in VS code:
+1) alt + down arrow
+
+To select specific duplicate values in VS code:
+1) Double click on variable name
+2) alt + double click on next instance

@@ -1,0 +1,133 @@
+############
+# Overview #
+############
+
+In high-level programming, you do not have to worry about resources, with the downside of not being as optimized as low level code.
+
+Garbage-collection: algorithm in javascript engine that removed old, unused objects.
+
+Interpreted or just-in-time compiled: abstraction over 0's and 1's
+
+Multi-paradigm: Approach and overall mindset of programming. Examples:
+  - Procedural programming
+  - Object-oriented programming (OOP)
+  - Functional programming (FP)
+javascript is flexible and can do all three
+
+First-class functions: functions are simply treated as variables. You can pass them into other functions and return them from functions
+
+Dynamically typed: Can assign variables to different data types dynamically (alterative is strongly typed)
+
+concurrency model: how the javascript engine handles multiple tasks.
+  - javascript runs in one single thread, so it can only do one thing at a time
+  - Event loop takes long running tasks, executes them in the 'background' and puts them back in the main thread once they are finished
+
+#####################
+# JavaScript Engine #
+#####################
+JS Engine: program that executes javascript code
+
+Every browser has its own JS engine
+- V8 is googles JS engine that powers node js
+
+The js engine is built with:
+- Call stack: Where the code is executed (execution context)
+- Heap: unstructured memory pool (where objects are stored)
+
+compilation vs interpretation:
+- compilation: 
+  - Entire code is converted to machine code at once, and written to a binary file that can be executed by a computer.
+  - source code -> portable file -> program running
+- interpretation: Interpreter runs through the source code and executes it line by line
+  - source code -> program running
+Modern JS is a combination just-in-time compilation:
+  - source code -> machine code (not portable file) -> program running
+
+Steps of just-in-time compilation:
+1) Parsing into the abstract syntax tree (AST)
+   - Gathers info like const, functions, etc.
+2) Compilation
+   - Takes the generated AST and compiles it into machine code
+   - Happens in the call stack
+3) Optimization
+   - Starts an un-optimized version of the code
+   - Once the optimized code is available, it is replaced
+
+callback queue: for example, a click on a page is put in the callback queue and put in the call stack. This is part of the event loop.
+
+#########################################
+# Execution contexts and the call stack #
+#########################################
+After compilation:
+1) Global execution context is created (top level code)
+   - code outside functions 
+   - only one can exist
+2) Execution of top-level code (inside global execution context)
+3) Execution of functions and waiting for callbacks
+   - for each function, a new execution context is created
+   - after all functions have been executed, wait for callbacks
+
+Execution context contains:
+1) variable environment
+   - let, const, var declarations
+   - functions
+   - arguments object (not in arrow functions)
+2) scope chain
+   - variables outside the function
+3) this keyword (not in arrow functions)
+
+############################
+# Scoping and scope in js: #
+############################
+Scoping: how the program's variables are organized and accessed
+Lexical scoping: scoping is controlled by placement of functions and blocks in the code
+Scope: Space of environment in which a certain variable is declared (global, function, block scopes)
+Scope of a variable: region of our code where a certain variable can be accessed
+
+3 Types of scope:
+- Global:
+  - outside of any function or block
+  - variables declared in global scope are accessible everywhere
+- Function
+  - variables are accessible only inside function not outside
+  - also called local scope
+- Block Scope (ES6)
+  - variables are accessible only inside block (block scoped)
+    - However, this only applies to let and const variables (var is function scoped)
+  - functions are also blocked scoped (only in strict mode)
+
+Hoisting: makes some types of variables accessible/usable in the code before they are actucally declared.
+  - "variables lifted to the top of their scope"
+  - Before execution code is scanned for variable declarations and for each variable a new property is created in teh variable environment
+  -------------------------------------------------------------------------------------------
+    TYPE                             Hoisted      Initial value          Scope(Strict mode)
+    function declarations            Yes          Actual function        Block
+    var variables                    Yes          undefined              Function
+    let and const variables          No           temp dead zone (TDZ)   Block
+    function expressions and arrows         All depends if using var or let/const
+  -------------------------------------------------------------------------------------------
+
+Best practices:
+- use const and let
+- declare functions and variables on top of code
+
+"This keyword": special variable that is created for every execution context. It takes the value of (points to) the "owner" of the function in which the this keyword is used.
+- Method: <object that is calling the method>
+- Simple function call: is undefined
+- Arrow functions: do not get their own "this" keyword
+- Event listener: <DOM element that the handler is attached to>
+- new, call, apply, bind: later in course
+This does not point to the function itself, and will not point to variable environment
+
+Primitives vs reference:
+Primitives:        Objects:
+- Number           - Object literal
+- String           - Arrays
+- Boolean          - Functions
+- Undefined        - Many more...
+- Null
+- Symbol
+- BigInt
+
+Primitives are stored in the call stack
+Reference are stored in the heap and referenced in the call stack

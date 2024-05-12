@@ -1,0 +1,55 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #a0f0a0;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 50px;
+}
+
+h1 {
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+h2 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+a {
+  background-color: yellowgreen;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.first {
+  color: rgb(0, 0, 88);
+}
+
+#your-name {
+  width: 300px;
+  background-color: rgb(35, 148, 35);
+  border: 5px solid rgb(72, 114, 241);
+  padding: 10px;
+  margin-top: 20px;
+}
+
+#your-name h2 {
+  color: rgb(128, 31, 2);
+}
+
+#icon-image {
+  width: 200px;
+}

@@ -1,0 +1,8 @@
+Creating a key pair using Amazon EC2:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair
+
+Connecting to your Linux instance:
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html
+
+Quickly Configuring the AWS CLI:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html#cli-quick-configuration

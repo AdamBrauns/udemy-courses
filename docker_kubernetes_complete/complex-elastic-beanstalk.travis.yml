@@ -1,0 +1,38 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_script:
+  - cd complex
+  - docker build -t adambrauns/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true adambrauns/react-test npm run test
+
+after_success:
+  - docker build -t adambrauns/complex-client ./client
+  - docker build -t adambrauns/complex-nginx ./nginx
+  - docker build -t adambrauns/complex-server ./server
+  - docker build -t adambrauns/complex-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push adambrauns/complex-client
+  - docker push adambrauns/complex-nginx
+  - docker push adambrauns/complex-server
+  - docker push adambrauns/complex-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-933560267424"
+  bucket_path: "docker-multi"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"

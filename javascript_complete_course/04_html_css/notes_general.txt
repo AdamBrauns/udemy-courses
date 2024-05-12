@@ -1,0 +1,2 @@
+To create HTML skeleton in VS Code:
+1) ! + TAB

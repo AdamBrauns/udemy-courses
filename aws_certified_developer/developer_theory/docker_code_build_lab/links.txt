@@ -1,0 +1,8 @@
+Installing Docker:
+https://docs.docker.com/install/
+
+Linux and Mac gitconfig file:
+https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-unixes.html#setting-up-https-unixes-credential-helper
+
+Windows gitconfig file:
+https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-https-windows.html

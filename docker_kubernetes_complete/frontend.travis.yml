@@ -1,0 +1,25 @@
+language: generic 
+sudo: required
+services:
+  - docker
+
+before_script:
+  - cd frontend
+  - docker build -t adambrauns/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true adambrauns/docker-react npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-933560267424"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"

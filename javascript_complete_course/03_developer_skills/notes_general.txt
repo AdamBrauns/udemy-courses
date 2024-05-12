@@ -1,0 +1,16 @@
+Site with coding challenges: code wars
+
+Steps to solving complex problems:
+1) Make sure you understand the problem completely
+2) Divide and conquer by breaking it into smaller problems
+3) Research when we are unsure
+4) Write pseudo-code before writing actual code
+
+To highlight multiple instances of the same text, highlight one,
+and use ctrl-d to keep selecting.
+
+There are different levels of console logging:
+console.log(measurement);
+console.warn(measurement);
+console.error(measurement);
+console.table(measurement);

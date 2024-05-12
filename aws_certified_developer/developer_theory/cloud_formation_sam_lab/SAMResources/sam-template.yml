@@ -1,0 +1,12 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  TestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs8.10
+      Environment:
+        Variables:
+          S3_BUCKET: cfsambucketadamb
+      CodeUri: s3://cfsambucketadamb/280f9e9c3e834bb3238a7f20b012422d

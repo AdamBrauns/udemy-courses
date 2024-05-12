@@ -1,0 +1,6 @@
+To configure code formatter
+1) Install code formatter extension (prettier or beautify)
+2) CTRL + SHIFT + P
+3) Select "Format Document"
+4) Select "Configure Default Formatter..."
+5) Select the code formatter you installed in step 1

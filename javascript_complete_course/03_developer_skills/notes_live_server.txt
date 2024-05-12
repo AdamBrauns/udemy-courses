@@ -1,0 +1,10 @@
+To install live-server:
+-----------------------
+1: Ensure rpm is installed:
+   "npm --version"
+2: Run "npm install live-server -g"
+
+To run live-server:
+-------------------
+1: Go to command prompt
+2: type "live-server"

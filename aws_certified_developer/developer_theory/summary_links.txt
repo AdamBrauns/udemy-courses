@@ -1,0 +1,5 @@
+Practicing CI/CD on AWS:
+https://d0.awsstatic.com/whitepapers/DevOps/practicing-continuous-integration-continuous-delivery-on-AWS.pdf
+
+Blue/Green Deployments on AWS:
+https://d1.awsstatic.com/whitepapers/AWS_Blue_Green_Deployments.pdf
